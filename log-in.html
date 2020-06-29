@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="no">
+
+<head>
+    <meta charset="utf-8">
+    <title>Logg inn</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/modals.css">
+
+    <meta name="theme-color" content="#1d6bb7">
+
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="popup-modal-div"></div>
+    <div id="reg-modal" class="reg-modal">
+        <div id="reg-modal-content">
+            <div id="reg-title">
+                <h1>Registrer bruker</h1>
+            </div>
+
+            <form action="" id="register-form">
+
+                <label for="reg-first-name" id="label-first-name" class="reg-label">Fornavn</label>
+                <input type="text" name="first-name" placeholder="Fornavn" id="reg-first-name" class="reg-input-field"
+                    required>
+
+                <label for="reg-last-name" id="label-last-name" class="reg-label">Etternavn</label>
+                <input type="text" name="last-name" placeholder="Etternavn" id="reg-last-name" class="reg-input-field"
+                    required>
+
+                <label for="reg-username" id="label-username" class="reg-label">E-mail</label>
+                <input type="text" name="username" placeholder="E-mail" id="reg-username" class="reg-input-field"
+                    required>
+
+                <label for="reg-password" id="label-password" class="reg-label">Passord</label>
+                <input type="password" name="password" placeholder="Passord" id="reg-password" class="reg-input-field"
+                    required>
+
+                <label for="c-reg-password" id="label-c-password" class="reg-label">Bekreft passord</label>
+                <input type="password" name="c-reg-password" placeholder="Bekreft passord" id="c-reg-password"
+                    class="reg-input-field" required>
+
+                <button type="submit" id="reg-button" class="form-button">Registrer</button>
+                <input type="button" id="reg-cancel-button" class="default-btn cancel-btn" value="Avbryt">
+            </form>
+
+        </div>
+    </div>
+
+    <div id="main">
+
+        <div id="login-header"></div>
+
+        <div id="logo-div">
+            <img src="images/Interaktivlogo2.png" alt="Logo" id="login-logo">
+        </div>
+
+        <div class="main-content" id="content">
+            <div id="login-form-div">
+                <form action="" id="login-form">
+                    <label for="login-username" class="login-label">Email</label>
+                    <input type="text" placeholder="E-postadresse" name="username" id="login-username"
+                        class="input-field" autocomplete="none" required>
+
+                    <label for="login-password" class="login-label">Passord</label>
+                    <input type="password" placeholder="Passord" name="password" id="login-password" class="input-field"
+                        required>
+
+                    <div id="login-buttons">
+                        <button type="submit" class="default-btn success-btn login-btn">Logg inn</button>
+                        <button id="register-form-button" class="default-btn register-btn">Registrer
+                            bruker</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="login-footer" class="footer">
+            <span id="footer-text" lang="en">JBH Communications ©</span>
+        </div>
+
+    </div>
+
+
+
+    <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+    <script src="js/plugins.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
+    <script src="js/auth/log-in.js"></script>
+    <!--<script src="js/user-actions.js"></script>-->
+    <script src="js/main.js"> </script>
+    <script src="js/modals.js"></script>
+    <script src="js/auth/register.js"></script>
+</body>
+
+</html>

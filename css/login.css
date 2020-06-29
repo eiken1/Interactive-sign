@@ -1,0 +1,337 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1d6bb7;
+}
+
+#main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 10vh 25vh 55vh 10vh;
+    grid-template-areas: 
+        "header header header"
+        ". logo ."
+        ". content ."
+        "footer footer footer";
+}
+
+#logo-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: logo;
+}
+
+#login-logo {
+    height: 100%;
+    width: 100%;
+}
+#regHeader {
+    grid-area: header;
+    font-size: 1.3em;
+    position: absolute;
+    margin: 0.5em;
+    color: #ffffff;
+}
+
+#login-header {
+    grid-area: header;
+    background-color: #2f2e41;
+}
+
+#content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#langDiv {
+    grid-area: language;
+}
+
+#login-footer {
+    grid-area: footer;
+}
+
+#footer-text {
+    color: #ffffff;
+    font-size: large;
+}
+
+#login-form-div #login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-label {
+    height: 20%;
+    width: 70%;
+    font-size: 1.4em;
+    color: #ffffff;
+    align-self: flex-start;
+    margin-left: 15%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.white-hr {
+    color: #ffffff;
+}
+
+.input-field {
+    height: 7vh;
+    width: 70%;
+    padding: 1.1em;
+    display: inline-block;
+    border: 1px solid #2f2e41;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    -webkit-transition: border .3s ease-in-out;
+    transition: border .3s ease-in-out;
+}
+
+.input-field:focus {
+    outline:none;
+    border: 4px solid #2f2e41;
+}
+
+#login-buttons {
+    width: 70%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1em;
+    box-sizing: border-box;
+}
+
+.register-btn {
+    /*#114170*/
+    background-color: #114170;
+    border: 2px solid transparent;
+    /*border: 1px solid #1d6ab71e;
+    background-color: #1d6ab78c;*/
+    color: white;
+}
+
+.register-btn:hover{
+    background-color: #114170;
+    border: 2px solid #114170;
+}
+
+.action-button {
+    display: inline-block;
+    width: 70%;
+    margin: 5px 0;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border: 1px solid #5BD486;
+    background-color: #5BD486;
+    color: #2f2e41;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.action-button:hover {
+    opacity: 0.9;
+}
+
+#login-title {
+    color: #ffffff;
+    font-size: 2em;
+    margin-left: 5vw;
+}
+
+.footer {
+    text-align: center;
+    background-color: #2f2e41;
+    padding: 3vh;
+}
+
+/*For register form modal*/
+#reg-modal-content {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15% 85%;
+    grid-template-areas: 
+        "title"
+        "content";
+    padding: 0 2vw;
+}
+
+#reg-title {
+    grid-area: title;
+    text-align: center;
+}
+
+#register-form {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 16.6% 16.6% 16.6% 16.6% 16.6% 16.6%;
+    grid-template-areas:
+        "first first"
+        "last last"
+        "email email"
+        "pword pword"
+        "cpword cpword"
+        "button button2";
+}
+
+#reg-first-name, #label-first-name {
+    grid-area: first;
+}
+
+#reg-last-name, #label-last-name {
+    grid-area: last;
+}
+
+#reg-username, #label-username {
+    grid-area: email;
+}
+
+#reg-password, #label-password {
+    grid-area: pword;
+}
+
+#c-reg-password, #label-c-password {
+    grid-area: cpword;
+}
+
+#reg-button {
+    grid-area: button;
+}
+
+#reg-cancel-button {
+    grid-area: button2;
+}
+
+.form-button {
+    height: 70%;
+    width: 90%;
+    padding: 10px 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #5BD486;
+    color: #2f2e41;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.form-button:hover {
+    opacity: 0.9;
+}
+
+.reg-input-field {
+    height: 60%;
+    width: 80%;
+    padding: 0.5em;
+    margin-top: 3.5vh;
+    display: inline-block;
+    border: 2px solid #2f2e41;
+    box-sizing: border-box;
+    border-radius: 2px;
+    font-size: 1em;
+    -webkit-transition: width .35s ease-in-out, border .35s ease-in-out;
+    transition: width .35s ease-in-out, border .35s ease-in-out;
+}
+
+.reg-input-field:focus {
+    outline:none;
+    width: 95%;
+    border: 4px solid #2f2e41;
+}
+
+.reg-label {
+    height: 20%;
+    font-size: 1.1em;
+}
+
+@media only screen and (max-width: 600px) {
+    #main {
+        display: grid;
+        grid-template-columns: 100vw;
+        grid-template-rows: 10vh 25vh 55vh 10vh;
+        grid-template-areas: 
+            "header"
+            "logo"
+            "form"
+            "footer";
+    }
+
+    #regHeader {
+        grid-area: header;
+        font-size: 1.3em;
+        position: absolute;
+    }
+
+    #regHeader a {
+        color: #ffffff;
+    }
+
+    #langDiv {
+        grid-area: header;
+        position: absolute;
+        right: 0;
+    }
+
+    #login-logo {
+        grid-area: logo;
+    }
+
+    #content {
+        grid-area: form;
+    }
+
+    #login-title {
+        margin-left: 15vw;
+    }
+
+    #login-footer {
+        grid-area: footer;
+    }
+
+    .action-button {
+        font-size: 1.3em;
+    }
+
+    #login-buttons {
+        flex-direction: column;
+    }
+
+    #login-buttons > button {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .register-btn {
+        font-size: 0.8em;
+        border: 3px solid #114170;
+    }
+
+    .login-label {
+        height: 20%;
+        font-size: 1.4em;
+        color: #ffffff;
+        align-self: flex-start;
+        margin-left: 15%;
+    }
+
+    #login-buttons {
+        flex-direction: column;
+    }
+
+    #login-buttons > button {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .register-btn {
+        font-size: 0.8em;
+    }
+}

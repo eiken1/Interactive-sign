@@ -1,0 +1,252 @@
+<!doctype html>
+<html class="no-js" lang="no">
+
+<head>
+  <meta charset="utf-8">
+  <title>Interaktivt kontorskilt Dashboard</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/modals.css">
+  <!--<link rel="stylesheet" href="css/inputs.css">-->
+
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/8fccf09a04.js" crossorigin="anonymous"></script>
+
+  <meta name="theme-color" content="#1d6bb7">
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <div id="popup-modal-div"></div>
+
+  <!-- Add your site or application content here -->
+  <div id="main">
+
+    <div id="status-modal" class="modal">
+      <div class="modal-content-status">
+        <div id="sign-info-div" class="modal-container-status">
+          <span id="sign-info-title"></span>
+          <span id="title-daily">Daglig info</span>
+          <span id="title-weekly">Ukentlig info</span>
+          <span id="sign-info-status-day"></span>
+          <span id="sign-info-status-week"></span>
+          <div id="status-button-div">
+            <button id="close-status-btn" class="default-btn">Lukk</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="feedback-modal" class="modal">
+      <form class="modal-content" action="">
+        <div class="modal-container">
+          <h1 id="modal-title">Dette ble endret</h1>
+
+          <ul id="modal-feedback-list"></ul>
+
+          <div class="modal-buttons">
+            <button class="form-button-modal" id="confirm-btn">Ok</button>
+            <!--<button type="button" class="modal-button" id="delete-btn">Delete</button>-->
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+    <div id="confirm-dialog" class="modal">
+      <!-- class="confirmDialog">-->
+      <div id="dialog-content" class="modal-content">
+        <!--class="dialogWrapper">-->
+        <form id="dialog-form" class="modal-container">
+          <h1 id="dialog-title"></h1>
+          <hr>
+          <div id="dialog-spinner">
+            <div class="lds-spinner-modal">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+
+          <div id="dialog-body">
+          </div>
+
+          <input id="dialog-type" type="hidden" value="" />
+          <input id="dialog-message" type="hidden" value="" />
+          <input id="dialog-submit" class="default-btn success-btn" type="submit" value="Ok" />
+          <input id="dialog-cancel" class="default-btn" type="button" value="Avbryt" />
+        </form>
+
+      </div>
+    </div>
+
+    <div id="index-header-div">
+      <h1 id="welcome-msg" class="index-text">Velkommen, bruker</h1>
+      <button id="index-logout-button" class="log-out-button" style="display: none;">Logg ut <i
+          class='fas fa-sign-out-alt'></i></button>
+    </div>
+
+    <div id="status-btn-div">
+      <button id="status-btn" class="default-btn">Vis status for skiltet</button>
+    </div>
+
+    <ul id="index-tabs" class="sidebar">
+      <li><a href="#daily" id="daily-href"><i class='fas fa-pen'></i> Dagens Beskjed</a></li>
+      <li><a href="#weekly" id="weekly-href"><i class='fas fa-calendar-alt'></i> Ukentlig Beskjed</a></li>
+      <li><a href="#quick-messages" id="quick-href"><i class="fas fa-dolly"></i> Hurtigvalg</a></li>
+      <li id="profile-page-link"><a href="#profile-page"><i class='fas fa-user'></i> Profil</a></li>
+    </ul>
+
+    <div id="daily" class="tab-content">
+      <!--<h3>Daglig beskjed!</h3>-->
+      <form id="index-form-daily" class="index-form">
+        <textarea id="sign-text-daily" rows="4" cols="50" class="msg-text"
+          placeholder="Skriv inn daglig beskjed her..."></textarea><br>
+
+        <div id="form-save-group">
+          <!--<label for="save-message" id="save-message-label">Lagre beskjed?</label>
+         <input type="checkbox" id="save-message" name="save-messages">-->
+          <input type="submit" value="Send" id="submitbtn-daily" class="form-button">
+        </div>
+      </form>
+    </div>
+
+    <div id="weekly" class="tab-content">
+      <!--<h3>Ukentlig beskjed!</h3>-->
+      <form id="index-form-weekly" class="index-form">
+        <textarea id="sign-text-weekly" rows="4" cols="50" class="msg-text"
+          placeholder="Skriv inn ukentlig beskjed her..."></textarea><br>
+        <input type="submit" value="Send" id="submitbtn-weekly" class="form-button">
+      </form>
+    </div>
+
+    <div id="quick-messages" class="tab-content">
+
+      <h2 id="quick-message-greeting">Lagre eller send hurtigbeskjed</h2>
+
+      <div id="message-inputs-container">
+        <input type="text" id="create-message-input" class="message-input" placeholder="Opprett beskjed">
+        <input type="button" id="create-message-btn" value="Opprett" class="message-input">
+      </div>
+
+      <ul id="stored-messages">
+
+      </ul>
+
+    </div>
+
+    <div id="profile-page" class="tab-content">
+      <form action="" id="edit-form">
+        <h1 id="profile-title">Profilinformasjon</h1>
+
+        <div id="profile-warning-container">
+          <i class='fas fa-exclamation-circle' id="profile-warning"></i>
+          <div id="profile-warning-text">
+            <p>For å kunne bytte passord eller e-mail, må din brukerkonto nylig ha logget inn.</p>
+          </div>
+
+        </div>
+
+        <div id="profile-editing-inputs">
+          <div id="email-div" class="profile-div">
+            <label for="email-input">Email</label>
+            <div class="profile-label-wrapper">
+              <input type="text" id="email-input" name="email-input" class="profile-input">
+              <span id="edit-email-btn" class="default-btn success-btn" title="Endre"><i class='fas fa-pen'></i></span>
+              <span id="confirm-email-btn" class=" default-btn success-btn" title="Lagre"><i
+                  class='fas fa-save'></i></span>
+            </div>
+          </div>
+          <div id="first-name-div" class="profile-div">
+            <label for="first-name-input">Fornavn</label>
+            <div class="profile-label-wrapper">
+              <input type="text" id="first-name-input" class="profile-input">
+              <span id="edit-fname-btn" class="default-btn success-btn" title="Endre"><i class='fas fa-pen'></i></span>
+              <span id="confirm-fname-btn" class="default-btn success-btn" title="Lagre"><i
+                  class='fas fa-save'></i></span>
+            </div>
+          </div>
+          <div id="last-name-div" class="profile-div">
+            <label for="last-name-input">Etternavn</label>
+            <div class="profile-label-wrapper">
+              <input type="text" id="last-name-input" class="profile-input">
+              <span id="edit-lname-btn" class="default-btn success-btn" title="Endre"><i class='fas fa-pen'></i></span>
+              <span id="confirm-lname-btn" class=" default-btn success-btn" title="Lagre"><i
+                  class='fas fa-save'></i></span>
+            </div>
+          </div>
+          <div id="password-div" class="profile-div-password">
+            <div>
+              <label for="password-input">Passord</label>
+              <input type="password" id="password-input" class="profile-input-small">
+            </div>
+            <div>
+              <label for="password-input">Gjenta passord</label>
+              <input type="password" id="c-password-input" class="profile-input-small">
+            </div>
+            <div class="profile-label-wrapper">
+              <span id="edit-pw-btn" class="default-btn success-btn" title="Endre"><i class='fas fa-pen'></i></span>
+              <span id="confirm-pw-btn" class="default-btn success-btn" title="Lagre"><i class='fas fa-save'></i></span>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    <div id="index-footer" class="footer">
+      <span id="footer-text" lang="en">JBH Communications ©</span>
+    </div>
+
+  </div>
+
+  <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script> ');</script>
+  <script src="js/plugins.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-firestore.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/index.js"></script>
+  <!--<script src="js/user-actions.js"></script>-->
+  <script src="js/auth/log-out.js"></script>
+  <script src="js/modals.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/tabs.js"></script>
+
+
+</body>
+
+</html>
